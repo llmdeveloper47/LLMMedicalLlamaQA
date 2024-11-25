@@ -1,0 +1,15 @@
+datasets==3.1.0
+torch 
+torchvision 
+torchaudio
+evaluate==0.4.3
+peft==0.13.2
+trl==0.12.1
+huggingface-hub==0.26.2
+sentence-transformers==3.3.1
+transformers==4.46.3
+wandb==0.18.7
+optuna==4.1.0
+scikit-learn==1.5.2
+pyyaml
+accelerate

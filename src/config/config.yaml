@@ -1,0 +1,81 @@
+# Configuration for wandb
+wandb:
+  WANDB_PROJECT_ID : "medical-llm"
+  WANDB_PROJECT_NAME : "llama3-model-training-run-10k-samples"
+# Configuration for huggingface integration
+huggingface:
+  HUGGINGFACE_TOKEN : "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"
+  HUGGINGFACE_BASE_MODEL : "meta-llama/Meta-Llama-3-8B-Instruct"
+  HUGGINGFACE_DATASET_NAME : "ruslanmv/ai-medical-chatbot"
+  HUGGINGFACE_OUTPUT_DIR_PATH : "finetuned-llama-3-8b-medical"
+
+# Configuration for model
+model:
+  ATTENTION_IMPLEMENTATION : "eager"
+  DEVICE_MAP : "auto"
+
+# configuration for bits and bytes config
+bits_and_bytes:
+  BNB_LOAD_IN_4BIT : True
+  BNB_TORCH_DTYPE : "torch.float16"
+  BNB_4BIT_QUANT_TYPE : "nf4"
+  BNB_4BIT_USE_DOUBLE_QUANT : True
+
+low_rank_adaption:
+  LORA_RANK : 16
+  LORA_ALPHA : 32
+  LORA_DROPOUT : 0.05
+  LORA_BIAS : "none"
+  LORA_TASK_TYPE : "CAUSAL_LM"
+  LORA_TARGET_MODULES:  # Define the list directly
+    - up_proj
+    - down_proj
+    - gate_proj
+    - k_proj
+    - q_proj
+    - v_proj
+    - o_proj
+
+
+# add this config now
+dataset:
+
+
+
+
+
+
+  
+
+
+d
+
+
+evaluation:
+  base_model_evaluation : True
+  model_artifacts_path: 
+  dataset_path : 
+  do_sample: true
+  max_new_tokens: 200
+  temperature: 0.0
+  top_k: 20
+  top_p: 0.90
+  repetition_penalty: 1.5
+  do_sample: False
+
+# Configuration for model training
+training:
+  model_path: "meta-llama/Meta-Llama-3-8B-Instruct"
+  tokenizer_path: "meta-llama/Meta-Llama-3-8B-Instruct"
+
+
+# Logging configuration
+logging:
+  level: "INFO"
+  log_file: "logs/app.log"
+
+# Application settings
+app:
+  name: "MyMLApp"
+  version: "1.0.0"
+  debug: false
